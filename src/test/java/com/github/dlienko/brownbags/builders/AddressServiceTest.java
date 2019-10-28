@@ -41,7 +41,11 @@ public class AddressServiceTest {
   @Test
   public void should_save_address_exact() {
     // given
-    Address address = Address.builder(CONSTANT_ID, CONSTANT_ID, "Poznań", "61-001")
+    Address address = Address.builder()
+        .id(CONSTANT_ID)
+        .userId(CONSTANT_ID)
+        .zipCode("Poznań")
+        .city("61-001")
         .streetName("ul. Maratońska")
         .houseNumber("2a")
         .build();

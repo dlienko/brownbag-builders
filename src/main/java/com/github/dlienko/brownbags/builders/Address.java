@@ -1,12 +1,14 @@
 package com.github.dlienko.brownbags.builders;
 
 import java.util.UUID;
-import lombok.Builder;
 import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import lombok.Value;
+import lombok.With;
 
 @Value
-@Builder
+@RequiredArgsConstructor
+@With
 class Address {
 
   @NonNull
@@ -28,5 +30,9 @@ class Address {
   String apartmentNumber;
 
   String entranceCode;
+
+  Address(UUID id, UUID userId, String zipCode, String city) {
+    this(id, userId, zipCode, city, null, null, null, null);
+  }
 
 }

@@ -1,10 +1,12 @@
 package com.github.dlienko.brownbags.builders;
 
 import java.util.UUID;
+import lombok.Builder;
 import lombok.NonNull;
 import lombok.Value;
 
 @Value
+@Builder
 class Address {
 
   @NonNull
@@ -47,68 +49,8 @@ class Address {
     AddressBuilder city(String city);
   }
 
+  @SuppressWarnings("WeakerAccess")
   static class AddressBuilder
       implements IdBuilder, UserIdBuilder, ZipCodeBuilder, CityBuilder {
-
-    private UUID id;
-    private UUID userId;
-    private String zipCode;
-    private String city;
-    private String streetName;
-    private String houseNumber;
-    private String apartmentNumber;
-    private String entranceCode;
-
-    private AddressBuilder() {
-    }
-
-    @Override
-    public AddressBuilder id(@NonNull UUID id) {
-      this.id = id;
-      return this;
-    }
-
-    @Override
-    public AddressBuilder userId(@NonNull UUID userId) {
-      this.userId = userId;
-      return this;
-    }
-
-    @Override
-    public AddressBuilder zipCode(@NonNull String zipCode) {
-      this.zipCode = zipCode;
-      return this;
-    }
-
-    @Override
-    public AddressBuilder city(@NonNull String city) {
-      this.city = city;
-      return this;
-    }
-
-    AddressBuilder streetName(String streetName) {
-      this.streetName = streetName;
-      return this;
-    }
-
-    AddressBuilder houseNumber(String houseNumber) {
-      this.houseNumber = houseNumber;
-      return this;
-    }
-
-    AddressBuilder apartmentNumber(String apartmentNumber) {
-      this.apartmentNumber = apartmentNumber;
-      return this;
-    }
-
-    AddressBuilder entranceCode(String entranceCode) {
-      this.entranceCode = entranceCode;
-      return this;
-    }
-
-    Address build() {
-      return new Address(
-          id, userId, zipCode, city, streetName, houseNumber, apartmentNumber, entranceCode);
-    }
   }
 }

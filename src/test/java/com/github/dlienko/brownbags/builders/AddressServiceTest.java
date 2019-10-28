@@ -44,8 +44,8 @@ public class AddressServiceTest {
     Address address = Address.builder()
         .id(CONSTANT_ID)
         .userId(CONSTANT_ID)
-        .zipCode("Poznań")
-        .city("61-001")
+        .zipCode("61-001")
+        .city("Poznań")
         .streetName("ul. Maratońska")
         .houseNumber("2a")
         .build();

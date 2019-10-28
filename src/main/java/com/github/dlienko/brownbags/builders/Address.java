@@ -1,14 +1,12 @@
 package com.github.dlienko.brownbags.builders;
 
 import java.util.UUID;
+import lombok.Builder;
 import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 import lombok.Value;
-import lombok.With;
 
 @Value
-@RequiredArgsConstructor
-@With
+@Builder
 class Address {
 
   @NonNull
@@ -31,8 +29,12 @@ class Address {
 
   String entranceCode;
 
-  Address(UUID id, UUID userId, String zipCode, String city) {
-    this(id, userId, zipCode, city, null, null, null, null);
+  static AddressBuilder builder(UUID id, UUID userId, String zipCode, String city) {
+    return new AddressBuilder()
+        .id(id)
+        .userId(userId)
+        .zipCode(zipCode)
+        .city(city);
   }
 
 }

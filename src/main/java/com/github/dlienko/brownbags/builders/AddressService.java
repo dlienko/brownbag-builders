@@ -9,9 +9,10 @@ class AddressService {
   private final AddressRepository addressRepository;
 
   void addAddress() {
-    Address address = new Address(idGenerator.get(), idGenerator.get(), "61-001", "Poznań")
-        .withStreetName("ul. Maratońska")
-        .withHouseNumber("2a");
+    Address address = Address.builder(idGenerator.get(), idGenerator.get(),"61-001","Poznań")
+        .streetName("ul. Maratońska")
+        .houseNumber("2a")
+        .build();
 
     addressRepository.save(address);
   }
